@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Comic Neue', cursive;
+    @apply bg-gray-100;
+  }
+}
+
+@layer components {
+  .font-comic {
+    font-family: 'UnifrakturMaguntia', cursive;
+    letter-spacing: 0.05em;
+  }
+
+  .newspaper-header {
+    background-color: white;
+    border-bottom: 4px double black;
+    padding: 1rem 0;
+  }
+
+  .newspaper-title {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 4rem;
+    line-height: 1;
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  .comic-panel {
+    @apply relative border-4 border-black bg-white shadow-lg hover:shadow-xl rounded-xl overflow-hidden mb-8 transition-transform duration-200;
+  
+    /* Extra native CSS */
+    page-break-inside: avoid;
+  }
+  
+
+  .comic-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 15px 15px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .news-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .news-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at center, rgba(0,0,0,0.2) 1px, transparent 1px);
+    background-size: 4px 4px;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  .headline {
+    font-family: 'Bangers', cursive;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    @apply text-3xl font-bold mb-4;
+  }
+}
