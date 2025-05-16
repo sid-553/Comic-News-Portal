@@ -30,7 +30,7 @@ npm run dev
 Then open your browser to http://localhost:5173 and enjoy the comic experience.
 
 Live demo
-Coming soon...
+(https://dapper-pothos-c5b358.netlify.app)
 
 Project structure
 src/
